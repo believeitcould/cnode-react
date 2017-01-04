@@ -1,10 +1,10 @@
-export const switchPage = (index) => ({
-    type: 'SWITCH_PAGE',
-    index
-})
+// export const switchPage = (index) => ({
+//     type: 'SWITCH_PAGE',
+//     index
+// })
 
-export const getThenShow = (index) => (dispatch, getState) => {
-    let url = 'http://cnodejs.org/api/v1/topics?limit=20&mdrender=false&page=1'
+export const getThenShow = (index = 1) => (dispatch, getState) => {
+    let url = `http://cnodejs.org/api/v1/topics?limit=20&mdrender=false&page=${index}`
 
     fetch(url)
         .then(response => {

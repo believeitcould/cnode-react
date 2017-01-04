@@ -5,7 +5,7 @@ const page = ({ onChange }) => {
 
     return (
         <div style={styles.box}>
-            <Pagination simple defaultCurrent={1} total={50} onChange={onChange} />
+            <Pagination simple defaultCurrent={1} total={200} onChange={onChange} />
         </div>
     )
 }

@@ -9,6 +9,7 @@ import reducer from './reducers'
 import App from './app'
 import Latest from './components/Latest'
 import Hottest from './components/Hottest'
+import { getThenShow } from './actions'
 
 const body =  document.getElementById('content')
 body.style.backgroundColor = '#f2f3f5'
@@ -24,6 +25,7 @@ const store = createStore(
   reducer,
   applyMiddleware(...middleware)
 )
+store.dispatch(getThenShow())
 
 render((
     <Provider store={store}>
@@ -36,4 +38,5 @@ render((
         </Router>
     </Provider>
     
-), document.getElementById('content'));
+), document.getElementById('content'))
+

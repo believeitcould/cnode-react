@@ -8,22 +8,13 @@ import { Link } from 'react-router'
 import Header from './components/Header'
 import SwitchPage from './containers/SwitchPage'
 import Content from './components/Content'
-import List from './components/ListItem'
+import List from './containers/List'
 
 export default class Index extends React.Component {
 	constructor(props) {
 		super(props)
-		this.state = {
-			item: []
-		}
 	}
 
-	handleClick(e) {
-		this.setState({
-			h: 'blue',
-			panelText : 'tt'
-		})
-	}
 
 	componentDidMount() {
 		
@@ -35,13 +26,8 @@ export default class Index extends React.Component {
 				<Header />
 				<SwitchPage />
 				<Content>
-				{this.state.item.length == 0 ?
-								''
-								:
-								<List item={this.state.item}/>
-							}
+					<List />
 				</Content>
-				
 			</div>
 			)
 	}

@@ -3,7 +3,7 @@ import { getThenShow } from '../actions'
 import Pagination from '../components/Pagination'
 
 const mapStateToProps = (state, ownProps) => ({
-    a: 1
+
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

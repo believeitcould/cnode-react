@@ -36,12 +36,17 @@ class ListItem extends React.Component {
 export default class List extends React.Component {
 
     render() {
+		console.log(this.props.item)
         return (
 			<div>
-            {
-				(this.props.item.data).map((ele)=>{
-					return <ListItem item={ele}/>
+            {	
+				this.props.item 
+				?
+				(this.props.item).map((ele)=>{
+					return <ListItem item={ele} />
 				})
+				:
+				''
 			}
 			</div>
         )

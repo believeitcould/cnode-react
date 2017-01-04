@@ -4,7 +4,6 @@ const switchPage = (state = {}, action) => {
     }
     switch(action.type) {
         case 'FETCH_DATA_SUCCESS':
-            console.log(action.message)
             return {
                 data: action.message.data
             }
