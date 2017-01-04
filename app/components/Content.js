@@ -15,7 +15,7 @@ const styles = {
     box: {
         backgroundColor: '#fff',
         borderRadius: '2px',
-        margin: '72px auto 30px',
+        margin: '40px auto 30px',
         width: '800px'
     }
 }

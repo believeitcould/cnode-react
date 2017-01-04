@@ -30,11 +30,7 @@ export default class Header extends React.Component {
 const styles = {
 	header: {
 		backgroundColor: '#f60',
-		position: 'fixed',
-		zIndex: 999,
-		top: 0,
-		left: 0,
-		right: 0,
+		
 	},
     inner: {
         maxWidth: '800px',
