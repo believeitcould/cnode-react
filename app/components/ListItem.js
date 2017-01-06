@@ -42,8 +42,8 @@ export default class List extends React.Component {
             {	
 				this.props.item 
 				?
-				(this.props.item).map((ele)=>{
-					return <ListItem item={ele} />
+				(this.props.item).map((ele,index)=>{
+					return <ListItem item={ele} key={index} />
 				})
 				:
 				''
