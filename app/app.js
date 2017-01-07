@@ -4,11 +4,7 @@ import { render } from 'react-dom'
 import { Button, Menu, Breadcrumb, Layout } from 'antd'
 import 'antd/dist/antd.css'
 import { Link } from 'react-router'
-// import Promise from 'bluebird'
 import HeaderCon from './containers/HeaderCon'
-import SwitchPage from './containers/SwitchPage'
-import Content from './components/Content'
-import List from './containers/List'
 
 export default class Index extends React.Component {
 	constructor(props) {
@@ -23,12 +19,9 @@ export default class Index extends React.Component {
 		return (
 			<div>
 				<HeaderCon tab="all" />
-				<SwitchPage tab="all" pageIndex={2} />
-				<Content>
-					<List />
-				</Content>
+				{this.props.children}
 			</div>
-			)
+		)
 	}
 }
 

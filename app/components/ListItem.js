@@ -3,21 +3,22 @@ import { render } from 'react-dom'
 import { Button, Menu, Breadcrumb } from 'antd'
 import { Link } from 'react-router'
 
+let now = new Date().getTime()
+
 class ListItem extends React.Component {
 
 	formatDate(date) {
-		let t = Date.parse(date);
-		let now = new Date().getTime();
-		var s = (now - t) / 1000;
-		let timeStr = '';
+		let t = Date.parse(date)
+		var s = (now - t) / 1000
+		let timeStr = ''
 		if (s < 60) {
-			timeStr = parseInt(s) + '秒前';
+			timeStr = parseInt(s) + '秒前'
 		}else if ((s/60) < 60) {
-			timeStr = parseInt(s/60) + '分钟前';
+			timeStr = parseInt(s/60) + '分钟前'
 		}else if ((s/60/60) < 24) {
-			timeStr = parseInt(s/60/60) + '小时前';
+			timeStr = parseInt(s/60/60) + '小时前'
 		}else {
-			timeStr = parseInt(s/60/60/24) + '天前';
+			timeStr = parseInt(s/60/60/24) + '天前'
 		}
 		return timeStr;
 	}
@@ -25,8 +26,8 @@ class ListItem extends React.Component {
     render() {
         return (
             <div style={styles.box}>
-				<img style={styles.avatar} src={this.props.item.author.avatar_url}/>
-				<Link style={styles.title}>{this.props.item.title}</Link>
+				<img style={styles.avatar} src={this.props.item.author.avatar_url} />
+				<Link style={styles.title} to={"/detail/"+this.props.item.id}>{this.props.item.title}</Link>
 				<span style={styles.lastReply}>{this.formatDate(this.props.item.last_reply_at)}</span>
 			</div>
         )

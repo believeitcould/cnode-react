@@ -7,8 +7,8 @@ import createLogger from 'redux-logger'
 import { Provider } from 'react-redux'
 import reducer from './reducers'
 import App from './app'
-import Latest from './components/Latest'
-import Hottest from './components/Hottest'
+import Index from './routes/Index'
+import Detail from './routes/Detail'
 import { getThenShow } from './actions'
 
 const body =  document.getElementById('content')
@@ -31,10 +31,10 @@ render((
     <Provider store={store}>
         <Router history={hashHistory}>
             <Route path="/" component={App}>
-                <IndexRoute component={Hottest}/>
-                <Route path="/latest" component={Latest}/>
-                <Route path="/nodelist" component={NodeList}/>
+                <IndexRoute component={Index} />
+                <Route path="/detail/:id" component={Detail} />
             </Route>
+            
         </Router>
     </Provider>
     

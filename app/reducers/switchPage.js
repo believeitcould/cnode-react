@@ -1,4 +1,9 @@
-const switchPage = (state = {}, action) => {
+let initialState = {
+    tab: 'all',
+    data: []
+}
+
+const switchPage = (state = initialState, action) => {
     if (typeof state == 'undefined') {
         return []
     }

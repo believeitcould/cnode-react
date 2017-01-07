@@ -1,7 +1,7 @@
 import React from 'react'
 import { Pagination } from 'antd'
 
-const page = ({ pageIndex, onChange }) => {
+const page = ({ pageIndex, tab, onChange }) => {
 
     return (
         <div style={styles.box}>
@@ -15,7 +15,6 @@ const styles = {
         backgroundColor: '#fff',
         borderRadius: '2px',
         padding: '15px 30px',
-       
         boxShadow: '0 1px 2px rgba(0,0,0,.1)',
         display: 'flex',
         justifyContent: 'center'
