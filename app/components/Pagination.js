@@ -1,11 +1,11 @@
 import React from 'react'
 import { Pagination } from 'antd'
 
-const page = ({ onChange }) => {
+const page = ({ pageIndex, onChange }) => {
 
     return (
         <div style={styles.box}>
-            <Pagination simple defaultCurrent={1} total={200} onChange={onChange} />
+            <Pagination simple defaultCurrent={pageIndex} total={200} onChange={onChange} />
         </div>
     )
 }

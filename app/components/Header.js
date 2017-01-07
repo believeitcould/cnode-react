@@ -2,26 +2,29 @@ import React from 'react'
 import { render } from 'react-dom'
 import { Link } from 'react-router'
 
-const Inner = () => {
-    return (
-        <div style={styles.inner}>
-            <Link style={styles.logo} to="/">CNode</Link>
-            <Link style={styles.link} to="/">全部</Link>
-            <Link style={styles.link} to="/">精华</Link>
-            <Link style={styles.link} to="/">分享</Link>
-            <Link style={styles.link} to="/">问答</Link>
-            <Link style={styles.link} to="/">工作</Link>
-            <span style={styles.txt}>Built with React</span>
-        </div>
-        
-    )
+
+class Inner extends React.Component {
+    
+    render () {
+        return (
+            <div style={styles.inner}>
+                <Link style={styles.logo} onClick={()=>this.props.onClick(1,'all')}>CNode</Link>
+                <Link style={styles.link} onClick={()=>this.props.onClick(1,'all')}>全部</Link>
+                <Link style={styles.link} onClick={()=>this.props.onClick(1,'good')}>精华</Link>
+                <Link style={styles.link} onClick={()=>this.props.onClick(1,'share')}>分享</Link>
+                <Link style={styles.link} onClick={()=>this.props.onClick(1,'ask')}>问答</Link>
+                <Link style={styles.link} onClick={()=>this.props.onClick(1,'job')}>工作</Link>
+                <span style={styles.txt}>Built with React</span>
+            </div>
+        )
+    }
 }
 
 export default class Header extends React.Component {
     render() {
 		return (
             <header style={styles.header}>
-                <Inner />
+                <Inner onClick={this.props.onClick} />
             </header>
         )
     }

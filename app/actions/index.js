@@ -3,14 +3,13 @@
 //     index
 // })
 
-export const getThenShow = (index = 1) => (dispatch, getState) => {
+export const getThenShow = (index = 1, tab = "") => (dispatch, getState) => {
     
     dispatch({
         type: 'SHOW_PROGRESS'
     })
     
-    let url = `http://cnodejs.org/api/v1/topics?limit=20&mdrender=false&page=${index}`
-
+    let url = `http://cnodejs.org/api/v1/topics?limit=20&mdrender=false&page=${index}&tab=${tab}`
     fetch(url)
         .then(response => {
             return response.json()
