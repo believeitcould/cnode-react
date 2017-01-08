@@ -1,14 +1,18 @@
 import { connect } from 'react-redux'
-import { getTopicDetail } from '../actions'
+import { getTopicDetail, changeRepliesPage } from '../actions'
 import TopicDetail from '../components/TopicDetail'
 
 const mapStateToProps = (state, ownProps) => ({
-    data: state.topicDetail.data
+    details: state.topicDetail.details,
+    repliesPageIndex: state.topicDetail.repliesPageIndex
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
     getTopicDetail: (topicId) => {
         dispatch(getTopicDetail(topicId))
+    },
+    changeRepliesPage: (index) => {
+        dispatch(changeRepliesPage(index))
     }
 })
 

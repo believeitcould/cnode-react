@@ -1,6 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
 // import marked from 'marked'
+import { Pagination } from 'antd'
 import '../css/TopicDetail.css'
 import Time from './Time'
 
@@ -14,17 +15,32 @@ const Author = ({ title, avatar, loginname, createAt, content}) => {
                 <span style={{margin:'0 10px'}}>{loginname}</span>
                 <span>{Time(createAt)}</span>
             </div>
-            <hr />
-            <div dangerouslySetInnerHTML={{__html: content}} />
+            
+            <div dangerouslySetInnerHTML={{__html: content}} style={{borderTop: '1px solid #f0f0f0',margin:'    5px 0'}}/>
         </div>
     )
 }
 
-const Replies = ({ replies }) => {
+const Replies = ({ replies, onChangeRepliesPageIndex, repliesPageIndex }) => {
+    console.log('replies')
+    // 每页评论数 当前页数
+    let pageSize = 20
+    
+    let onPageChange = (index) => {
+        // console.log(index)
+        // // this.forceUpdate()
+        // console.log(that.props)
+        onChangeRepliesPageIndex(index)
+    }
     return (
         <div style={styles.repliesBox}>
             <RepliesCount count={replies.length} />
-            <RepliesList replies={replies} />
+            <RepliesList replies={replies.slice((repliesPageIndex-1)*pageSize,repliesPageIndex*pageSize)} />
+            <Pagination style={{marginTop:'20px',marginLeft:'0'}}
+                        defaultCurrent={repliesPageIndex} 
+                        defaultPageSize={pageSize} 
+                        total={replies.length}
+                        onChange={onPageChange} />
         </div>
     )
 }
@@ -69,8 +85,7 @@ export default class extends React.Component {
     }
 
     render() {
-        let data = this.props.data
-
+        let data = this.props.details.data
         if (!data) {
             return (<div></div>)
         }
@@ -86,7 +101,14 @@ export default class extends React.Component {
                     {this.props.children}
                 </div>
                 {/* 无回复的帖子 不显示Replies */}
-                {data.replies.length != 0 ? <Replies replies={data.replies} /> : ''}
+                {data.replies.length != 0 
+                    ? 
+                    <Replies replies={data.replies} 
+                             onChangeRepliesPageIndex={this.props.changeRepliesPage} 
+                             repliesPageIndex={this.props.repliesPageIndex} /> 
+                    : 
+                    ''
+                }
             </div>
             
         )
@@ -107,15 +129,14 @@ const styles = {
         borderRadius: '3px'
     },
     repliesBox: {
-        backgroundColor: '#fff',
         borderRadius: '4px',
         margin: '40px auto 30px',
         width: '800px',
     },
     repliesItem: {
+        backgroundColor: '#fff',
         padding: '10px',
         borderTop: '1px solid #f0f0f0',
-
     },
     repliesAvatar: {
         width: '30px',

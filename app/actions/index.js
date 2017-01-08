@@ -56,3 +56,10 @@ export const getTopicDetail = (topicId) => (dispatch, getState) => {
             })
         })
 }
+
+export const changeRepliesPage = (index) => (dispatch, getState)=> {
+    dispatch({
+        type: 'CHANGE_REPLIES_PAGE',
+        index: index
+    })
+}

@@ -1,5 +1,6 @@
 let initialState = {
-    
+    details: '',
+    repliesPageIndex: 1
 }
 
 const topicDetail = (state = initialState, action) => {
@@ -8,7 +9,15 @@ const topicDetail = (state = initialState, action) => {
     }
     switch(action.type) {
         case 'TOPIC_DETAIL_FETCH_DATA_SUCCESS':
-            return action.message
+            return {
+                details: action.message,
+                repliesPageIndex: state.repliesPageIndex
+            }
+        case 'CHANGE_REPLIES_PAGE':
+            return {
+                details: state.details,
+                repliesPageIndex: action.index
+            }
         default:
             return state
     }
