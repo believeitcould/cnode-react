@@ -14,7 +14,7 @@ export default class extends React.Component {
 const styles = {
     box: {
         backgroundColor: '#fff',
-        borderRadius: '2px',
+        borderRadius: '4px',
         margin: '40px auto 30px',
         width: '800px'
     }

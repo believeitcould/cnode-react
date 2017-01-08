@@ -16,7 +16,7 @@ export default class Index extends React.Component {
 	render() {
 		return (
 			<div>
-				<SwitchPage tab="all" pageIndex={2} />
+				<SwitchPage tab="all" pageIndex={1} />
 				<Content>
 					<List />
 				</Content>

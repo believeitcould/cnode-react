@@ -16,7 +16,7 @@ export default class Detail extends React.Component {
 	render() {
 		return (
 			<div>
-				<TopicDetailCon topicId={this.props.params.id}>author</TopicDetailCon>
+				<TopicDetailCon topicId={this.props.params.id} />
 			</div>
 		)
 	}

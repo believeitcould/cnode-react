@@ -11,7 +11,7 @@ import Index from './routes/Index'
 import Detail from './routes/Detail'
 import { getThenShow } from './actions'
 
-const body =  document.getElementById('content')
+const body =  document.getElementsByTagName('body')[0]
 body.style.backgroundColor = '#f2f3f5'
 // body.style.paddingTop = '55px'
 
