@@ -36,7 +36,7 @@ export const getTopicDetail = (topicId) => (dispatch, getState) => {
         type: 'SHOW_PROGRESS'
     })
     
-    let url = `http://cnodejs.org/api/v1/topic/${topicId}`
+    let url = `http://cnodejs.org/api/v1/topic/${topicId}?mdrender=false`
     fetch(url)
         .then(response => {
             return response.json()

@@ -1,7 +1,10 @@
 import React from 'react'
 import { render } from 'react-dom'
+import marked from 'marked'
+import '../css/TopicDetail.css'
 
 const Author = ({ title, avatar, loginname, createAt, content}) => {
+    let a = '<a href="">222</a>'
     return (
         <div>
             <h2>{title}</h2>
@@ -11,7 +14,7 @@ const Author = ({ title, avatar, loginname, createAt, content}) => {
                 <span>{createAt}</span>
             </div>
             <hr />
-            {content}
+            <div dangerouslySetInnerHTML={{__html: marked(content)}} />
         </div>
     )
 }
