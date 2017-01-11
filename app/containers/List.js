@@ -1,13 +1,15 @@
 import { connect } from 'react-redux'
 import ListItem from '../components/ListItem'
+import { getThenShow } from '../actions'
 
-const mapStateToProps = (state, ownProps) => {
-    let data = state.switchPage.data ? state.switchPage.data : []
-    return {item: data}
-}
+const mapStateToProps = (state, ownProps) => ({
+    item: state.switchPage.data
+})
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-    
+    getIndexData: () => {
+        dispatch(getThenShow())
+    }
 })
 
 const List = connect(

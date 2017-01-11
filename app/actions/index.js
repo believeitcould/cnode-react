@@ -9,6 +9,11 @@ export const getThenShow = (index = 1, tab = "") => (dispatch, getState) => {
         type: 'SHOW_PROGRESS'
     })
     
+    dispatch({
+        type: 'SWITCH_PAGINATION',
+        pageIndex: index
+    })
+
     let url = `http://cnodejs.org/api/v1/topics?limit=20&mdrender=false&page=${index}&tab=${tab}`
     fetch(url)
         .then(response => {

@@ -13,6 +13,7 @@
 - es6
 
 ## 运行
+    npm install
     npm start
 
 ## todo

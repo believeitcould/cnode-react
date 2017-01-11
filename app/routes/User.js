@@ -1,9 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
-import 'antd/dist/antd.css'
 import HeaderCon from '../containers/HeaderCon'
 import Content from '../components/Content'
-import TopicDetailCon from '../containers/TopicDetailCon'
 
 export default class Detail extends React.Component {
 	constructor(props) {
@@ -11,14 +9,13 @@ export default class Detail extends React.Component {
 	}
 
 	componentDidMount() {
-
+		document.title = `@${this.props.params.name}`
 	}
 
 	render() {
 		return (
 			<div>
-				<HeaderCon />
-				<TopicDetailCon topicId={this.props.params.id} />
+				{this.props.params.name}
 			</div>
 		)
 	}

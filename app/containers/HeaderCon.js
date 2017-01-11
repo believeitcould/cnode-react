@@ -10,9 +10,8 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
     // onClick: (index, tab) => {
     //     dispatch(getThenShow(index, tab))
     // }
-    onClick: () => {
-        console.log('Header')
-        console.log(ownProps)
+    onClick: (index, tab) => {
+        dispatch(getThenShow(index, tab))
     }
 })
 

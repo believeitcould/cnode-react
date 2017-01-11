@@ -1,15 +1,15 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { Router, Route, hashHistory, IndexRoute } from 'react-router'
+import createHistory from 'history/lib/createBrowserHistory'
 import { createStore, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 import createLogger from 'redux-logger'
 import { Provider } from 'react-redux'
 import reducer from './reducers'
-import App from './app'
 import Index from './routes/Index'
 import Detail from './routes/Detail'
-import { getThenShow } from './actions'
+import User from './routes/User'
 
 const body =  document.getElementsByTagName('body')[0]
 body.style.backgroundColor = '#f2f3f5'
@@ -25,16 +25,17 @@ const store = createStore(
   reducer,
   applyMiddleware(...middleware)
 )
-store.dispatch(getThenShow())
 
 render((
     <Provider store={store}>
         <Router history={hashHistory}>
-            <Route path="/" component={App}>
-                <IndexRoute component={Index} />
-                <Route path="/detail/:id" component={Detail} />
-            </Route>
-            
+            <Route path="/" component={Index}/>
+                <Route path="/good" component={Index} />
+                <Route path="/share" component={Index} />
+                <Route path="/ask" component={Index} />
+                <Route path="/job" component={Index} />
+            <Route path="/detail/:id" component={Detail} />
+            <Route path="/user/:name" component={User} />
         </Router>
     </Provider>
     

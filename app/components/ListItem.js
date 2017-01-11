@@ -20,17 +20,20 @@ class ListItem extends React.Component {
 
 export default class List extends React.Component {
 
+	componentWillMount() {
+		if(!this.props.item) this.props.getIndexData()
+	}
+
     render() {
-        return (
+		let item = this.props.item
+		if (!item) return ( <div></div> )
+        
+		return (
 			<div>
             {	
-				this.props.item 
-				?
-				(this.props.item).map((ele, index)=>{
+				item.map((ele, index)=>{
 					return <ListItem item={ele} key={index} />
 				})
-				:
-				''
 			}
 			</div>
         )

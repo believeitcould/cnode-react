@@ -5,7 +5,7 @@ const page = ({ pageIndex, tab, onChange }) => {
 
     return (
         <div style={styles.box}>
-            <Pagination simple defaultCurrent={pageIndex} total={200} onChange={onChange} />
+            <Pagination simple defaultCurrent={pageIndex} total={200} onChange={(index)=>onChange(index,tab)} />
         </div>
     )
 }

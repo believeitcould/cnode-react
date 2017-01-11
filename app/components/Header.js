@@ -8,12 +8,12 @@ class Inner extends React.Component {
     render () {
         return (
             <div style={styles.inner}>
-                <Link style={styles.logo} onClick={()=>this.props.onClick(1,'all')}>CNode</Link>
-                <Link style={styles.link} onClick={()=>this.props.onClick(1,'all')}>全部</Link>
-                <Link style={styles.link} onClick={()=>this.props.onClick(1,'good')}>精华</Link>
-                <Link style={styles.link} onClick={()=>this.props.onClick(1,'share')}>分享</Link>
-                <Link style={styles.link} onClick={()=>this.props.onClick(1,'ask')}>问答</Link>
-                <Link style={styles.link} onClick={()=>this.props.onClick(1,'job')}>工作</Link>
+                <Link style={styles.logo} to="/">CNode</Link>
+                <Link style={styles.link} to="/">全部</Link>
+                <Link style={styles.link} to="/good">精华</Link>
+                <Link style={styles.link} to="/share">分享</Link>
+                <Link style={styles.link} to="/ask">问答</Link>
+                <Link style={styles.link} to="/job">工作</Link>
                 <span style={styles.txt}>Built with React</span>
             </div>
         )

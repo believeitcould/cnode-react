@@ -1,6 +1,6 @@
 let initialState = {
     tab: 'all',
-    data: []
+    pageIndex: 1
 }
 
 const switchPage = (state = initialState, action) => {
@@ -10,7 +10,13 @@ const switchPage = (state = initialState, action) => {
     switch(action.type) {
         case 'FETCH_DATA_SUCCESS':
             return {
+                pageIndex: state.pageIndex,
                 data: action.message.data
+            }
+        case 'SWITCH_PAGINATION':
+            return {
+                pageIndex: action.pageIndex,
+                data: state.data
             }
         default:
             return state

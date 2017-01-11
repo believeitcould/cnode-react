@@ -22,14 +22,11 @@ const Author = ({ title, avatar, loginname, createAt, content}) => {
 }
 
 const Replies = ({ replies, onChangeRepliesPageIndex, repliesPageIndex }) => {
-    console.log('replies')
     // 每页评论数 当前页数
     let pageSize = 20
     
     let onPageChange = (index) => {
-        // console.log(index)
-        // // this.forceUpdate()
-        // console.log(that.props)
+        {/* dispatch action 重新render replies分页数据 */}
         onChangeRepliesPageIndex(index)
     }
     return (
@@ -83,14 +80,18 @@ export default class extends React.Component {
         let topicId = this.props.topicId
         this.props.getTopicDetail(topicId)
     }
-
+    
     render() {
         let data = this.props.details.data
-        if (!data) {
+        // 1.state不存在时显示空  2.当前id与state.id不同时显示空
+        if (!data || data.id != this.props.topicId) {
             return (<div></div>)
         }
 
-		return (
+        // 页面title
+        document.title = data.title
+		
+        return (
             <div>
                 <div style={styles.box}>
                     <Author title={data.title} 
