@@ -2,7 +2,7 @@ import React from 'react'
 import { render } from 'react-dom'
 // import marked from 'marked'
 import { Pagination } from 'antd'
-import '../css/TopicDetail.css'
+// import '../css/TopicDetail.css'
 import Time from './Time'
 
 const Author = ({ title, avatar, loginname, createAt, content}) => {

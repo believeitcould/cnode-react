@@ -1,5 +1,5 @@
 let initialState = {
-    tab: 'all',
+    tab: '',
     pageIndex: 1
 }
 
@@ -18,6 +18,7 @@ const switchPage = (state = initialState, action) => {
                 pageIndex: action.pageIndex,
                 data: state.data
             }
+        
         default:
             return state
     }

@@ -8,8 +8,8 @@ const mapStateToProps = (state, ownProps) => ({
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-    onChange: (index, tab) => {
-        dispatch(getThenShow(index, tab))
+    onChange: (index) => {
+        dispatch(getThenShow(index, ownProps.tab))
     }
 })
 

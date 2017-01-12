@@ -9,13 +9,15 @@ export default class Detail extends React.Component {
 	}
 
 	componentDidMount() {
-		document.title = `@${this.props.params.name}`
+		// document.title = `@${this.props.params.name}`
+		console.log('user mount')
 	}
 
 	render() {
+		console.log('user')
 		return (
 			<div>
-				{this.props.params.name}
+				uuu
 			</div>
 		)
 	}

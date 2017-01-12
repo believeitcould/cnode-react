@@ -20,8 +20,18 @@ class ListItem extends React.Component {
 
 export default class List extends React.Component {
 
-	componentWillMount() {
-		if(!this.props.item) this.props.getIndexData()
+	componentDidMount() {
+		console.log('list did mount')
+		// if(this.props.loaded) this.props.getIndexData()
+		// console.log('list did mount' + this.props.loaded)
+		this.props.getIndexData()
+	}
+
+	componentDidUpdate(prevProps) {
+		console.log('list did update')
+		if (prevProps.tab !== this.props.tab) {
+			this.props.getIndexData()
+		}
 	}
 
     render() {

@@ -1,19 +1,31 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { Link } from 'react-router'
+import { Link, IndexLink } from 'react-router'
 
+// const Link = ({ txt }) => {
+//     let onclick = (e) => {
+//         console.log(e.target)
+//         e.target.style.fontSize = '30px'
+//     }
+
+//     return (
+//         <span style={styles.link} onClick={onclick}>
+//             {txt}
+//         </span>
+//     )
+// }
 
 class Inner extends React.Component {
     
     render () {
         return (
             <div style={styles.inner}>
-                <Link style={styles.logo} to="/">CNode</Link>
+                <span style={styles.logo}>CNode</span>
                 <Link style={styles.link} to="/">全部</Link>
                 <Link style={styles.link} to="/good">精华</Link>
                 <Link style={styles.link} to="/share">分享</Link>
-                <Link style={styles.link} to="/ask">问答</Link>
                 <Link style={styles.link} to="/job">工作</Link>
+                <Link style={styles.link} to="/user/test">工作</Link>
                 <span style={styles.txt}>Built with React</span>
             </div>
         )
@@ -23,9 +35,13 @@ class Inner extends React.Component {
 export default class Header extends React.Component {
     render() {
 		return (
-            <header style={styles.header}>
-                <Inner onClick={this.props.onClick} />
-            </header>
+            <div>
+                <header style={styles.header}>
+                    <Inner onClick={this.props.onClick} />
+                </header>
+                {this.props.children}
+            </div>
+            
         )
     }
 }
@@ -52,7 +68,8 @@ const styles = {
     link: {
         color: '#fff',
         fontSize: '16px',
-        marginRight: '1.8em'
+        marginRight: '1.8em',
+        cursor: 'pointer'
     },
     txt: {
         color: '#fff',

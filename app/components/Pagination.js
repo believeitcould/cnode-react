@@ -1,14 +1,25 @@
 import React from 'react'
 import { Pagination } from 'antd'
+import { render } from 'react-dom'
 
-const page = ({ pageIndex, tab, onChange }) => {
-
-    return (
-        <div style={styles.box}>
-            <Pagination simple defaultCurrent={pageIndex} total={200} onChange={(index)=>onChange(index,tab)} />
-        </div>
-    )
+class Page extends React.Component {
+    render() {
+		return (
+            <div style={styles.box}>
+                <Pagination simple defaultCurrent={this.props.pageIndex} current={this.props.pageIndex} total={200} onChange={(index)=>this.props.onChange(index)} />
+            </div>
+        )
+    }
 }
+
+// const page = ({ pageIndex, tab, onChange }) => {
+    
+//         return (
+//         <div style={styles.box}>
+//             <Pagination simple defaultCurrent={pageIndex} total={200} onChange={(index)=>onChange(index)} />
+//         </div>
+//     )
+// }
 
 const styles = {
     box: {
@@ -20,4 +31,4 @@ const styles = {
         justifyContent: 'center'
     }
 }
-export default page
+export default Page
