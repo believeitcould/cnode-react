@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from 'react-dom'
-import HeaderCon from '../containers/HeaderCon'
+import UserDetailCon from '../containers/UserDetailCon'
 import Content from '../components/Content'
 
 export default class Detail extends React.Component {
@@ -9,15 +9,16 @@ export default class Detail extends React.Component {
 	}
 
 	componentDidMount() {
-		// document.title = `@${this.props.params.name}`
+		document.title = `@${this.props.params.name}`
 		console.log('user mount')
 	}
 
 	render() {
 		console.log('user')
+		let username = this.props.params.name
 		return (
 			<div>
-				uuu
+				<UserDetailCon username={username} />
 			</div>
 		)
 	}

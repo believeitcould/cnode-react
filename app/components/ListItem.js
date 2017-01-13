@@ -10,7 +10,7 @@ class ListItem extends React.Component {
     render() {
         return (
             <div style={styles.box}>
-				<img style={styles.avatar} src={this.props.item.author.avatar_url} />
+				<Link to={`/user/${this.props.item.author.loginname}`}><img style={styles.avatar} src={this.props.item.author.avatar_url} /></Link>
 				<Link style={styles.title} to={"/detail/"+this.props.item.id}>{this.props.item.title}</Link>
 				<span style={styles.lastReply}>{Time(this.props.item.last_reply_at)}</span>
 			</div>

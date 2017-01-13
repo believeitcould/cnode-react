@@ -10,8 +10,12 @@ const Time = (date) => {
 		timeStr = parseInt(s/60) + '分钟前'
 	}else if ((s/60/60) < 24) {
 		timeStr = parseInt(s/60/60) + '小时前'
-	}else {
+	}else if ((s/60/60/24) < 30) {
 		timeStr = parseInt(s/60/60/24) + '天前'
+	}else if ((s/60/60/24/30) < 12) {
+		timeStr = parseInt(s/60/60/24/30) + '月前'
+	}else {
+		timeStr = parseInt(s/60/60/24/30/12) + '年前'
 	}
 	return timeStr
 }

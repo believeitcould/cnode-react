@@ -18,7 +18,7 @@ body.style.backgroundColor = '#f2f3f5'
 const middleware = [ thunk ]
 if (process.env.NODE_ENV !== 'production') {
 	console.log(process.env.NODE_ENV)
-    // middleware.push(createLogger())
+    middleware.push(createLogger())
 }
 
 const store = createStore(
@@ -28,17 +28,16 @@ const store = createStore(
 
 render((
     <Provider store={store}>
-        <Router history={browserHistory}>
+        <Router history={hashHistory}>
             <Route path="/" component={HeaderCon}>
                 <IndexRoute component={Index} />
                 <Route path="good" component={Index} />
                 <Route path="share" component={Index} />
                 <Route path="ask" component={Index} />
                 <Route path="job" component={Index} />
+                <Route path="detail/:id" component={Detail} />
                 <Route path="user/:name" component={User} />
             </Route>
-             <Route path="/detail/:id" component={Detail} />
-            
         </Router>
     </Provider>
     

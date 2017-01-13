@@ -25,7 +25,6 @@ class Inner extends React.Component {
                 <Link style={styles.link} to="/good">精华</Link>
                 <Link style={styles.link} to="/share">分享</Link>
                 <Link style={styles.link} to="/job">工作</Link>
-                <Link style={styles.link} to="/user/test">工作</Link>
                 <span style={styles.txt}>Built with React</span>
             </div>
         )
