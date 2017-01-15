@@ -28,15 +28,15 @@ const store = createStore(
 
 render((
     <Provider store={store}>
-        <Router history={hashHistory}>
+        <Router history={browserHistory}>
             <Route path="/" component={HeaderCon}>
                 <IndexRoute component={Index} />
                 <Route path="good" component={Index} />
                 <Route path="share" component={Index} />
                 <Route path="ask" component={Index} />
                 <Route path="job" component={Index} />
-                <Route path="detail/:id" component={Detail} />
-                <Route path="user/:name" component={User} />
+                <Route path="t/:id" component={Detail} />
+                <Route path="u/:name" component={User} />
             </Route>
         </Router>
     </Provider>

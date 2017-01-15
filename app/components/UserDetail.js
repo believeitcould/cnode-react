@@ -75,7 +75,7 @@ const List = ({ item }) => {
     return (
         <div style={styles.listBox}>
 			<img style={styles.listAvatar} src={item.author.avatar_url} />
-			<Link style={styles.listTitle} to={`/detail/${item.id}`}>{item.title}</Link>
+			<Link style={styles.listTitle} to={`/t/${item.id}`}>{item.title}</Link>
 			<span >{Time(item.last_reply_at)}</span>
 		</div>
     )

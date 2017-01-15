@@ -3,6 +3,7 @@ import { render } from 'react-dom'
 // import marked from 'marked'
 import { Pagination } from 'antd'
 // import '../css/TopicDetail.css'
+import 'github-markdown-css'
 import { Link } from 'react-router'
 import Time from './Time'
 
@@ -12,14 +13,14 @@ const Author = ({ title, avatar, loginname, createAt, content}) => {
         <div>
             <h3>{title}</h3>
             <div style={{margin:'5px 0',display:'flex',alignItems:'center'}}>
-                <Link to={`/user/${loginname}`}>
+                <Link to={`/u/${loginname}`}>
                     <img style={styles.avatar} src={avatar} />
                 </Link>
                 <span style={{margin:'0 10px'}}>{loginname}</span>
                 <span>{Time(createAt)}</span>
             </div>
             
-            <div dangerouslySetInnerHTML={{__html: content}} style={{borderTop: '1px solid #f0f0f0',margin:'    5px 0'}}/>
+            <div dangerouslySetInnerHTML={{__html: content}} className="markdown-body" />
         </div>
     )
 }
@@ -60,13 +61,16 @@ const RepliesList = ({ replies }) => {
                 replies.map((ele, index)=>{
                     return (
                         <div key={index} style={styles.repliesItem}>
-                            <Link to={`/user/${ele.author.loginname}`}>
-                                <img style={styles.repliesAvatar} src={ele.author.avatar_url} />
-                            </Link>
-                            <span style={{margin:'0 10px'}}>{ele.author.loginname}</span>
-                            <span>{Time(ele.create_at)}</span>
+                            <div style={{display:'flex',alignItems:'center'}}>
+                                <Link to={`/u/${ele.author.loginname}`}>
+                                    <img style={styles.repliesAvatar} src={ele.author.avatar_url} />
+                                </Link>
+                                <span style={{margin:'0 10px'}}>{ele.author.loginname}</span>
+                                <span>{Time(ele.create_at)}</span>
+                            </div>
+                            
                             <div style={{margin:'10px 0 0 40px'}} 
-                                 dangerouslySetInnerHTML={{__html: ele.content}} />
+                                 dangerouslySetInnerHTML={{__html: ele.content}} className="markdown-body" />
                         </div>
                     ) 
                 })

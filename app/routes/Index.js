@@ -3,6 +3,7 @@ import { render } from 'react-dom'
 import SwitchPage from '../containers/SwitchPage'
 import Content from '../components/Content'
 import List from '../containers/List'
+import { Lifecycle } from 'react-router'
 
 export default class Index extends React.Component {
 	constructor(props) {
@@ -15,8 +16,9 @@ export default class Index extends React.Component {
 	}
 
 	componentDidUpdate() {
-
+		
 	}
+
 
 	render() {
 		let path = this.props.location.pathname

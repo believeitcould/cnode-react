@@ -17,4 +17,6 @@
     npm start
 
 ## todo
-- 浏览器显示title（切换页面时，title应该改变）
+- ~~浏览器显示title（切换页面时，title应该改变~~
+- ~~增加user页面~~
+- react-router 后退会重新加载

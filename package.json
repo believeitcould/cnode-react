@@ -4,7 +4,7 @@
     "description": "",
     "main": "webpack.config.js",
     "scripts": {
-        "start": "webpack-dev-server --port 3000 --devtool eval --progress --colors --content-base build",
+        "start": "webpack-dev-server --port 3000 --devtool eval --progress --colors --content-base build --history-api-fallback",
         "build": "webpack"
     },
     "keywords": [],
@@ -12,6 +12,7 @@
     "license": "ISC",
     "dependencies": {
         "antd": "^2.5.2",
+        "github-markdown-css": "^2.4.1",
         "marked": "^0.3.6",
         "moment": "^2.17.1",
         "nprogress": "^0.2.0",
