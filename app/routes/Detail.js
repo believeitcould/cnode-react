@@ -1,6 +1,5 @@
 import React from 'react'
 import { render } from 'react-dom'
-import 'antd/dist/antd.css'
 import { browserHistory } from 'react-router'
 import HeaderCon from '../containers/HeaderCon'
 import Content from '../components/Content'

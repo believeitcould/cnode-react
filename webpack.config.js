@@ -3,6 +3,8 @@ var webpack = require('webpack')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var OpenBrowserPlugin = require('open-browser-webpack-plugin') //自动打开浏览器插件
 
+process.env.NODE_ENV = 'development' // 这个要写 .babel env 坑！
+
 module.exports = {
 
   	entry: ['webpack/hot/dev-server', path.resolve(__dirname, 'app/Router.js')],
@@ -15,8 +17,11 @@ module.exports = {
  	devServer: {
 		contentBase: './',
 		port: 3000,
-		color: true
-	},// hot不起作用啊
+		color: true,
+		inline: true,
+		hot: true,
+		historyApiFallback: true
+	},// progress 不起作用
 
  	module: {
     	loaders: [
@@ -31,13 +36,16 @@ module.exports = {
 		},
 		{
 			test: /\.css$/,
-			loader: 'style!css'
+			loader: 'style-loader!css-loader'
+		},
+		{
+			test: /\.less$/,
+			loader: 'style-loader!css-loader!less-loader'
 		}
     	]
   	},
 	  
   	plugins: [
-    	new webpack.HotModuleReplacementPlugin(),
 		new HtmlWebpackPlugin({
     		template: './app/index.html'
     	}),
@@ -47,14 +55,15 @@ module.exports = {
         	}
     	}),
 		new webpack.HotModuleReplacementPlugin(), //热加载插件
-		new webpack.optimize.OccurenceOrderPlugin(),
-    	new webpack.optimize.UglifyJsPlugin({
-          	compressor: {
-            	warnings: false,
-          	},
-        }),
+		
 		new OpenBrowserPlugin({ url: 'http://localhost:3000' })
   	]
 }
 		// new webpack.optimize.CommonsChunkPlugin('vendors','js/vendors.js'),
 		// vendors:['react','react-dom','react-router','redux','react-redux']  //第三方库和框架
+		// new webpack.optimize.OccurenceOrderPlugin(),
+    	// new webpack.optimize.UglifyJsPlugin({
+        //   	compressor: {
+        //     	warnings: false,
+        //   	},
+        // }),

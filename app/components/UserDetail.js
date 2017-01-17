@@ -69,7 +69,6 @@ const SectionReply = ({ list }) => {
 }
 
 const List = ({ item }) => {
-    console.log(item)
     return (
         <div style={styles.listBox}>
 			<img style={styles.listAvatar} src={item.author.avatar_url} />
