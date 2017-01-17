@@ -10,10 +10,11 @@ import HeaderCon from './containers/HeaderCon'
 import Index from './routes/Index'
 import Detail from './routes/Detail'
 import User from './routes/User'
+import Init from './components/Init'
 
 const body =  document.getElementsByTagName('body')[0]
 body.style.backgroundColor = '#f2f3f5'
-// body.style.paddingTop = '55px'
+
 
 const middleware = [ thunk ]
 if (process.env.NODE_ENV !== 'production') {
@@ -28,7 +29,7 @@ const store = createStore(
 
 render((
     <Provider store={store}>
-        <Router history={browserHistory}>
+        <Router history={hashHistory}>
             <Route path="/" component={HeaderCon}>
                 <IndexRoute component={Index} />
                 <Route path="good" component={Index} />

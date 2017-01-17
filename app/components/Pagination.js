@@ -12,15 +12,6 @@ class Page extends React.Component {
     }
 }
 
-// const page = ({ pageIndex, tab, onChange }) => {
-    
-//         return (
-//         <div style={styles.box}>
-//             <Pagination simple defaultCurrent={pageIndex} total={200} onChange={(index)=>onChange(index)} />
-//         </div>
-//     )
-// }
-
 const styles = {
     box: {
         backgroundColor: '#fff',

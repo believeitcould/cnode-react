@@ -1,7 +1,5 @@
 import React from 'react'
 import { render } from 'react-dom'
-// import marked from 'marked'
-// import '../css/TopicDetail.css'
 import { Link } from 'react-router'
 import Time from './Time'
 

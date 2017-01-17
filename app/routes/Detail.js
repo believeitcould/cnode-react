@@ -20,14 +20,7 @@ export default class Detail extends React.Component {
 
 	routerWillLeave(nextLocation) {
 
-	  	// @user
-	  	let reg = /user/g
-	  	console.log(nextLocation)
-		let path = nextLocation.pathname
-		let username = path.split('/')[2]
-		console.log(username)
-		// browserHistory.push('/u/path')
-        return '确认要离开'
+	  	return true
     }
 
 	render() {

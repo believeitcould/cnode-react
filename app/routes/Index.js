@@ -3,7 +3,6 @@ import { render } from 'react-dom'
 import SwitchPage from '../containers/SwitchPage'
 import Content from '../components/Content'
 import List from '../containers/List'
-import { Lifecycle } from 'react-router'
 
 export default class Index extends React.Component {
 	constructor(props) {
@@ -12,7 +11,6 @@ export default class Index extends React.Component {
 
 	componentDidMount() {
 		document.title = 'CNode'
-		console.log('index did mount')
 	}
 
 	componentDidUpdate() {
@@ -23,7 +21,6 @@ export default class Index extends React.Component {
 	render() {
 		let path = this.props.location.pathname
 		let tab = path.substr(1)
-		console.log(tab+123)
 		return (
 			<div>
 				<SwitchPage tab={tab} pageIndex={1} />

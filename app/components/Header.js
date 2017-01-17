@@ -1,19 +1,6 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { Link, IndexLink } from 'react-router'
-
-// const Link = ({ txt }) => {
-//     let onclick = (e) => {
-//         console.log(e.target)
-//         e.target.style.fontSize = '30px'
-//     }
-
-//     return (
-//         <span style={styles.link} onClick={onclick}>
-//             {txt}
-//         </span>
-//     )
-// }
+import { Link } from 'react-router'
 
 class Inner extends React.Component {
     

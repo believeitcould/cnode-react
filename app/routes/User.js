@@ -10,11 +10,9 @@ export default class Detail extends React.Component {
 
 	componentDidMount() {
 		document.title = `@${this.props.params.name}`
-		console.log('user mount')
 	}
 
 	render() {
-		console.log('user')
 		let username = this.props.params.name
 		return (
 			<div>

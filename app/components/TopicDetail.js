@@ -1,8 +1,6 @@
 import React from 'react'
 import { render } from 'react-dom'
-// import marked from 'marked'
 import { Pagination } from 'antd'
-// import '../css/TopicDetail.css'
 import 'github-markdown-css'
 import { Link } from 'react-router'
 import Time from './Time'
