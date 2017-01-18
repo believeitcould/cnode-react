@@ -15,7 +15,7 @@ module.exports = {
   	},
 
  	devServer: {
-		contentBase: './',
+		contentBase: './app',
 		port: 3000,
 		color: true,
 		inline: true,
